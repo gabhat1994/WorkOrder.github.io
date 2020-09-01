@@ -1,11 +1,14 @@
 import React from "react";
-
-export default function Home() {
+import Grid from "./Grid";
+export default function Home(props) {
   const handleSave = (event) => {
     event.stopPropogation();
   };
   return (
-    <div>
+    <div
+      className="col-md-9"
+      style={{ border: "2px solid grey", marginLeft: "15%" }}
+    >
       <button
         style={{
           color: "balck",
@@ -14,11 +17,13 @@ export default function Home() {
           fontSize: "20px",
           border: "2px solid grey",
           width: "100px",
+          float: "right",
         }}
         onClick={() => handleSave}
       >
         Save
       </button>
+      <Grid {...props} />
     </div>
   );
 }
