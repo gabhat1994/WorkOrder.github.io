@@ -23,7 +23,6 @@ export default function Home(props) {
       >
         Save
       </button>
-      <Grid {...props} />
     </div>
   );
 }
