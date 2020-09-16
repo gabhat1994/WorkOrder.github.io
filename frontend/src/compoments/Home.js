@@ -1,5 +1,5 @@
 import React from "react";
-import Grid from "./Grid";
+
 export default function Home(props) {
   const handleSave = (event) => {
     event.stopPropogation();
