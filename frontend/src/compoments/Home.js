@@ -1,23 +1,25 @@
-import React , {useEffect } from "react";
-import Grid from "./Grid"
+import React, { useEffect } from "react";
+import Grid from "./Grid";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import {gridData} from "../actions/actions"
+import { useDispatch, useSelector } from "react-redux";
+import { getGridData } from "../actions/actions";
 export default function Home(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get("./data.json");
-      dispatch(gridData(data.members));
+      dispatch(getGridData(data.members));
     };
     fetchData();
   }, []);
+  const dataReducer = useSelector((state) => state.dataReducer);
+  const { gridData } = dataReducer;
   return (
     <div
       className="col-md-9"
       style={{ border: "2px solid grey", marginLeft: "15%" }}
     >
-      <Grid />
+      <Grid gridData={gridData} />
     </div>
   );
 }

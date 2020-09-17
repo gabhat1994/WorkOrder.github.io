@@ -1,8 +1,8 @@
-import {} from "../constant/constant"
+import {GET_GRID_DATA} from "../constant/constant"
 
 
-const gridData = (data) => async (dispatch) => {
-  dispatch({ type: "RESTAURANT_LIST_DATA", payload: data });
+const getGridData = (data) => async (dispatch) => {
+  dispatch({ type: GET_GRID_DATA, payload: data });
 };
 
 
@@ -12,4 +12,4 @@ const gridData = (data) => async (dispatch) => {
 
 
 
-export { gridData };
+export { getGridData };

@@ -1,13 +1,14 @@
-import  {} from "../constant/constant"
+import  {GET_GRID_DATA} from "../constant/constant"
 
-function dataReducer(state = { }, action) {
+function dataReducer(state = { gridData : [] }, action) {
     switch (action.type) {
  
-      case "ADD_MENU_ITEM":
+      case GET_GRID_DATA:
         return {
           ...state,
+          gridData : action.payload,
         };
-  
+ 
       default:
         return state;
     }
