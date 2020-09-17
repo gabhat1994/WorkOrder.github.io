@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Table, Button, Space } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+// import { getModalData } from "../actions/actions";
+import Modal from "./Modal";
 export default function Grid(props) {
-  const handleOnClick = (event) => {
-    event.stopPropogation();
-  };
+  const dispatch = useDispatch();
+  const [showModal, setShowMOdal] = useState(false);
+  const dataReducer = useSelector((state) => state.dataReducer);
+  const { gridData } = dataReducer;
   const columns = [
     {
       title: "Id",
@@ -27,16 +31,24 @@ export default function Grid(props) {
 
       render: (text, record) => (
         <Space size="middle">
-          <Button key={record.id} onClick={handleOnClick} block>
+          <Button onClick={onClick} block>
             View Activity
           </Button>
         </Space>
       ),
     },
   ];
+
+  const onClick = (id) => {
+    if (id != null) {
+      let data = gridData.filter((x) => x.id === id);
+     console.log(data , "test")
+    }
+  };
   return (
     <div>
-      <Table columns={columns} dataSource={props.gridData} pagination={false} />
+      <Table columns={columns} dataSource={gridData} pagination={false} />
+      {showModal && <Modal />}
     </div>
   );
 }

@@ -12,14 +12,13 @@ export default function Home(props) {
     };
     fetchData();
   }, []);
-  const dataReducer = useSelector((state) => state.dataReducer);
-  const { gridData } = dataReducer;
+
   return (
     <div
       className="col-md-9"
       style={{ border: "2px solid grey", marginLeft: "15%" }}
     >
-      <Grid gridData={gridData} />
+      <Grid />
     </div>
   );
 }
