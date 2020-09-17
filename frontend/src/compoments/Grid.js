@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Table, Button, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-// import { getModalData } from "../actions/actions";
+import { getModalData } from "../actions/actions";
 import Modal from "./Modal";
 export default function Grid(props) {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export default function Grid(props) {
 
       render: (text, record) => (
         <Space size="middle">
-          <Button onClick={onClick} block>
+          <Button onClick={() => onClick(record.id)} block>
             View Activity
           </Button>
         </Space>
@@ -42,7 +42,10 @@ export default function Grid(props) {
   const onClick = (id) => {
     if (id != null) {
       let data = gridData.filter((x) => x.id === id);
-     console.log(data , "test")
+      Promise.resolve(dispatch(getModalData(data))).then(function () {
+        setShowMOdal(true);
+      });
+      console.log(data, "test");
     }
   };
   return (
