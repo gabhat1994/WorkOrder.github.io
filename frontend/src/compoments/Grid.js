@@ -39,19 +39,21 @@ export default function Grid(props) {
     },
   ];
 
+  const modalClose =() => {
+    setShowMOdal(false)
+  }
   const onClick = (id) => {
     if (id != null) {
       let data = gridData.filter((x) => x.id === id);
       Promise.resolve(dispatch(getModalData(data))).then(function () {
         setShowMOdal(true);
       });
-      console.log(data, "test");
     }
   };
   return (
     <div>
       <Table columns={columns} dataSource={gridData} pagination={false} />
-      {showModal && <Modal />}
+      {showModal && <Modal showModal={showModal}  modalClose={modalClose}/>}
     </div>
   );
 }
