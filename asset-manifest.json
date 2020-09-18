@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/WorkOrder.github.io/static/css/main.efbad750.chunk.css",
+    "main.js": "/WorkOrder.github.io/static/js/main.f81fd128.chunk.js",
+    "main.js.map": "/WorkOrder.github.io/static/js/main.f81fd128.chunk.js.map",
+    "runtime-main.js": "/WorkOrder.github.io/static/js/runtime-main.b472d127.js",
+    "runtime-main.js.map": "/WorkOrder.github.io/static/js/runtime-main.b472d127.js.map",
+    "static/css/2.0ddb61e8.chunk.css": "/WorkOrder.github.io/static/css/2.0ddb61e8.chunk.css",
+    "static/js/2.c18b3762.chunk.js": "/WorkOrder.github.io/static/js/2.c18b3762.chunk.js",
+    "static/js/2.c18b3762.chunk.js.map": "/WorkOrder.github.io/static/js/2.c18b3762.chunk.js.map",
+    "index.html": "/WorkOrder.github.io/index.html",
+    "precache-manifest.b925ccbaeecabdbf97800a436ad014f0.js": "/WorkOrder.github.io/precache-manifest.b925ccbaeecabdbf97800a436ad014f0.js",
+    "service-worker.js": "/WorkOrder.github.io/service-worker.js",
+    "static/css/2.0ddb61e8.chunk.css.map": "/WorkOrder.github.io/static/css/2.0ddb61e8.chunk.css.map",
+    "static/css/main.efbad750.chunk.css.map": "/WorkOrder.github.io/static/css/main.efbad750.chunk.css.map",
+    "static/js/2.c18b3762.chunk.js.LICENSE.txt": "/WorkOrder.github.io/static/js/2.c18b3762.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b472d127.js",
+    "static/css/2.0ddb61e8.chunk.css",
+    "static/js/2.c18b3762.chunk.js",
+    "static/css/main.efbad750.chunk.css",
+    "static/js/main.f81fd128.chunk.js"
+  ]
+}
