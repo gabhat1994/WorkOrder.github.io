@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Modal, Button } from "antd";
 import { useSelector } from "react-redux";
 import { DatePicker, Space } from "antd";
-import TimeDisplayGrid from "./TimeDisplayGrid"
+import TimeDisplayGrid from "./TimeDisplayGrid";
 import moment from "moment";
 
 export default function Overlay(props) {
   const [showData, setShowData] = useState(false);
-  const [date, setDate] = useState("");
+  const [data, setData] = useState({});
   const modalReducer = useSelector((state) => state.modalReducer);
   const { modalData } = modalReducer;
 
@@ -18,12 +18,15 @@ export default function Overlay(props) {
   };
 
   const onDate = (date, dateString) => {
-    let finalDate = dateString.split("-");
-    let newDateSting = finalDate[0] + " " + finalDate[1] + " " + finalDate[2];
-    setDate(newDateSting)
-    setShowData(true)
-
-
+    let finalDate = dateString.replaceAll("-", " ");
+    modalData[0].activity_periods.forEach((element) => {
+      if (element.start_time.toString().substring(0, 11).trim() == finalDate) {
+        let da = element;
+        Promise.resolve(setData(da)).then(function () {
+          setShowData(true);
+        });
+      }
+    });
   };
   return (
     <>
@@ -47,7 +50,7 @@ export default function Overlay(props) {
             onChange={(date, dateString) => onDate(date, dateString, 1)}
           />
         </Space>
-        {showData && <TimeDisplayGrid />}
+        {showData && <TimeDisplayGrid activity={data}/>}
       </Modal>
     </>
   );
